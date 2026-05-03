@@ -2,7 +2,7 @@
 
 ## What is RLHF?
 
-**Reinforcement Learning from Human Feedback (RLHF)** is an approach for steering language models toward behaviors humans prefer, without relying only on next-token prediction on raw text. A widely used recipe—especially in instruction-tuned systems—combines **supervised fine-tuning (SFT)** on demonstrations, **reward modeling (RM)** from human comparisons (or proxies in labs), and **reinforcement learning** (often **PPO** with a KL penalty toward a reference policy) so the model improves on what the reward model scores highly, while **regularization** limits reward hacking or degenerate text.
+**Reinforcement Learning from Human Feedback (RLHF)** is an approach for steering language models toward behaviors humans prefer, without relying only on next-token prediction on raw text. A widely used recipe especially in instruction-tuned systems—combines **supervised fine-tuning (SFT)** on demonstrations, **reward modeling (RM)** from human comparisons (or proxies in labs), and **reinforcement learning** (often **PPO** with a KL penalty toward a reference policy) so the model improves on what the reward model scores highly, while **regularization** limits reward hacking or degenerate text.
 
 - **SFT**: Fine-tune on demonstrations (e.g., high-quality answers or, in simplified labs, sentences from a curated dataset) to get a strong starting policy.
 - **RM**: A model learns to predict **reward** or **preference** from comparisons so training can scale beyond hand-written demos.
@@ -18,7 +18,7 @@ InstructGPT ([Ouyang et al., 2022](https://arxiv.org/pdf/2203.02155)) made this 
 - **Targets behaviors SFT alone misses**: Demonstrations are limited and expensive; optimizing against a learned reward can improve helpfulness, harmlessness, and instruction-following dimensions that are hard to fully supervise.
 - **Connects to governance and iteration**: Updating the RM and RL stage reflects updated policies (e.g., refusals, tone, factuality emphasis), giving a lever for organizational values—understood as imperfect and requiring oversight.
 
-RLHF is **not** a complete solution to alignment. Reward models can be **mis-specified**, **biased**, or **gamed**; optimizing against them can produce **sycophancy**, **over-refusal**, or **reward hacking**. Safety work therefore treats RLHF as one component alongside **interpretability**, **red teaming**, **constitutional or rule-based methods**, **RLAIF**, and **post-training monitoring**. Understanding RLHF end-to-end—as in this repo and in [RLHF_in_notebooks](https://github.com/ash80/RLHF_in_notebooks)—is a standard foundation for reasoning about modern LLM training and its limits.
+RLHF is **not** a complete solution to alignment. Reward models can be **mis-specified**, **biased**, or **gamed**; optimizing against them can produce **sycophancy**, **over-refusal**, or **reward hacking**. Safety work therefore treats RLHF as one component alongside **interpretability**, **red teaming**, **constitutional or rule-based methods**, **RLAIF**, and **post-training monitoring**. Understanding RLHF end-to-end—as in this repo and in [RLHF_in_notebooks](https://github.com/ash80/RLHF_in_notebooks) is a standard foundation for reasoning about modern LLM training and its limits.
 
 ## This repository
 
